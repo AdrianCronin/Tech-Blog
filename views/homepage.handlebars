@@ -1,1 +1,22 @@
-<h1>/ route got</h1>
+{{!-- blog post container --}}
+<div class="container vstack gap-2 col-md-12 mx-auto">
+    <div class="b-example-divider"></div>
+    {{#each posts as |post|}}
+    {{!-- post template --}}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4 class="card-title">{{post.title}}</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">{{post.content}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted d-flex justify-content-between"><span>Posted by
+                        {{post.user.username}}</span><span> on {{post.date_created}}</span></small>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

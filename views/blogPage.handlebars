@@ -1,0 +1,43 @@
+{{!-- blog post container --}}
+<div class="container vstack gap-2 col-md-12 mx-auto">
+    <div class="b-example-divider"></div>
+
+    {{!-- post template --}}
+    {{#each posts as |post|}}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4 class="card-title">{{post.title}}</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">{{post.content}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted d-flex justify-content-between"><span>Posted by
+                        {{post.user.username}}</span><span> on {{post.date_created}}</span></small>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+    {{!-- posted comment template --}}
+    <div class="container">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">This is a comment on a blog post on a tech blog website about tech posted to
+                    continue the discourse.</p>
+                <p class="card-text">-The Other Guy</p>
+            </div>
+        </div>
+    </div>
+
+    {{!-- add comment template --}}
+    <div class="mb-3 container col-md-4 text-center">
+        <label for="exampleFormControlTextarea1" class="form-label h3 mb-3 fw-normal">Comment</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+    </div>
+
+</div>

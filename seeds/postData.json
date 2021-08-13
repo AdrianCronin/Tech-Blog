@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "First Post",
+        "content": "This is the first post content by TheRage",
+        "user_id": 1
+    },
+    {
+        "id": 2,
+        "title": "Second Post",
+        "content": "This is the second post content by TheDude",
+        "user_id": 2
+    },
+    {
+        "id": 3,
+        "title": "Third Post",
+        "content": "This is the third post content by TheChad",
+        "user_id": 3
+    },
+    {
+        "id": 4,
+        "title": "Fourth Post",
+        "content": "This is the fourth post content by TheMetal",
+        "user_id": 4
+    }
+]

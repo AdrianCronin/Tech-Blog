@@ -1,0 +1,22 @@
+[
+    {
+        "content": "I am commenting on the first post - TheDude",
+        "post_id": 1,
+        "user_id": 2
+    },
+    {
+        "content": "I am commenting on the second post - TheChad",
+        "post_id": 2,
+        "user_id": 3
+    },
+    {
+        "content": "I am commenting on the Third post - TheMetal",
+        "post_id": 3,
+        "user_id": 4
+    },
+    {
+        "content": "I am replying to TheDude's comment on the first post - TheRage",
+        "post_id": 1,
+        "user_id": 1
+    }
+]

@@ -14,6 +14,16 @@ router.get('/', async (req, res) => {
     };
 });
 
+// login route
+
+
+
+
+
+
+
+
+
 // testing find all users with their posts and comments
 router.get('/testUsers', async (req, res) => {
     try {

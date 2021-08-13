@@ -36,6 +36,7 @@ Comment.belongsTo(User, {
 });
 
 module.exports = {User, Post, Comment}
+
 // User model
 // - ID
 // - Username

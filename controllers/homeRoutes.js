@@ -5,7 +5,7 @@ const router = require('express').Router();
 // homepage route displays posts
 router.get('/', async (req, res) => {
     try {
-        const postData = await Post.findAll({ include: [{ model: User, attributes: ['username'], },], });
+        const postData = await Post.findAll({ include: [{ model: User, attributes: ['username'] } ] });
         const posts = postData.map((post) => post.get({ plain: true }));
         res.render('homepage', { posts });
 

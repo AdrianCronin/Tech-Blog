@@ -29,4 +29,18 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// logout post route
+router.post('/logout', (req, res) => {
+    try {
+        if (req.session.logged_in) {
+            req.session.logged_in = false;
+            res.redirect('/');
+        } else {
+            res.status(400).end();
+        }
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 module.exports = router;

@@ -49,6 +49,18 @@ router.get('/logout', async (req, res) => {
     };
 });
 
+router.get('/dashboard', async (req, res) => {
+    try {
+        if (!req.session.logged_in) {
+            res.redirect('/login');
+            return;
+        }
+        res.render('dashboard');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 
 

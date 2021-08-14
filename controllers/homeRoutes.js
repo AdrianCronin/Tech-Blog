@@ -80,18 +80,6 @@ router.get('/dashboard', async (req, res) => {
 
 
 
-
-
-// testing find all users with their posts and comments
-router.get('/testUsers', async (req, res) => {
-    try {
-        const users = await User.findAll({ include: [Post, Comment] });
-        res.status(200).json(users);
-    } catch (err) {
-        res.status(500).json(err);
-    };
-});
-
 // testing find all posts with their comments
 router.get('/testPosts', async (req, res) => {
     try {

@@ -5,7 +5,9 @@ const router = require('express').Router();
 // homepage route displays posts
 router.get('/', async (req, res) => {
     try {
-        const postData = await Post.findAll({ include: [{ model: User, attributes: ['username'] }] });
+        const postData = await Post.findAll({
+            include: [{ model: User, attributes: ['username'] }]
+        });
         const posts = postData.map((post) => post.get({ plain: true }));
         res.render('homepage', { posts, logged_in: req.session.logged_in });
 
@@ -69,7 +71,7 @@ router.get('/dashboard', async (req, res) => {
                 }]
         });
 
-        const posts = postData.map((post) => post.get({plain: true}));
+        const posts = postData.map((post) => post.get({ plain: true }));
 
         res.render('dashboard', { posts, logged_in: req.session.logged_in });
 

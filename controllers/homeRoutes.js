@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.get('/login', async (req, res) => {
     try {
         if (req.session.logged_in) {
-            res.redirect('/'); //change to dashboard once set up
+            res.redirect('/dashboard'); //change to dashboard once set up
             return;
         }
         res.render('login');
@@ -31,7 +31,7 @@ router.get('/login', async (req, res) => {
 router.get('/signup', async (req, res) => {
     try {
         if (req.session.logged_in) {
-            res.redirect('/'); //change to dashboard once set up
+            res.redirect('/dashboard'); //change to dashboard once set up
             return;
         }
         res.render('signup');
@@ -49,13 +49,30 @@ router.get('/logout', async (req, res) => {
     };
 });
 
+// dashboard page route
 router.get('/dashboard', async (req, res) => {
     try {
         if (!req.session.logged_in) {
             res.redirect('/login');
             return;
         }
-        res.render('dashboard', { logged_in: req.session.logged_in });
+
+        const postData = await Post.findAll({
+            where:
+            {
+                id: req.session.user_id
+            },
+            include:
+                [{
+                    model: User,
+                    attributes: ['username']
+                }]
+        });
+
+        const posts = postData.map((post) => post.get({plain: true}));
+
+        res.render('dashboard', { posts, logged_in: req.session.logged_in });
+
     } catch (err) {
         res.status(500).json(err);
     }

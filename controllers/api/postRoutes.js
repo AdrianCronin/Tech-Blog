@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
 
 
 
-// create a new postroute
+// create a new post route
 router.post("/new", async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -36,6 +36,20 @@ router.post("/new", async (req, res) => {
             user_id: req.session.user_id
         });
         res.status(200).json(newPost);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// create a new comment route
+router.post("/comment", async (req, res) => {
+    try {
+        const comment = await Comment.create({
+            post_id: req.body.post_id,
+            content: req.body.content,
+            user_id: req.session.user_id
+        });
+        res.status(200).json(comment);
     } catch (err) {
         res.status(500).json(err);
     }

@@ -64,10 +64,10 @@ router.get('/edit/:id', async (req, res) => {
 // edit a post route
 router.put("/edit/:id", async (req, res) => {
     try {
-        const newPost = await Post.create({
-            title: req.body.title,
-            content: req.body.content,
-            user_id: req.session.user_id
+        const newPost = await Post.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
         });
         res.status(200).json(newPost);
     } catch (err) {

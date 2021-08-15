@@ -1,7 +1,7 @@
 {{!-- dashboard post buttons --}}
 <div class="container vstack gap-2">
     {{#each posts as |post|}}
-    <a href="/api/posts/{{post.id}}">
+    <a href="/api/posts/edit/{{post.id}}">
         <button type="button" class="btn btn-primary btn-lg col-12 ">
             <div class="d-flex justify-content-between">
                 <span>{{post.title}}</span><span>{{post.date_created}}</span>

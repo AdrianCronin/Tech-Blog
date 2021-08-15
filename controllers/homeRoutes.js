@@ -80,6 +80,19 @@ router.get('/dashboard', async (req, res) => {
     }
 });
 
+// create new post page
+router.get('/new', async (req, res) => {
+    try {
+        if (!req.session.logged_in) {
+            res.redirect('/');
+            return;
+        }
+        req.session.dashboard = true;
+        res.render('newPost', { logged_in: req.session.logged_in, dashboard: req.session.dashboard });
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
 
 
 // testing find all posts with their comments

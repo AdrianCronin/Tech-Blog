@@ -25,14 +25,16 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-// create a new post
-router.post("/new", async (req, res) => {
+
+
+// create a new postroute
+router.post("/", async (req, res) => {
     try {
         const postData = await Post.create(req.body);
-        console.log(postData.id);
-        res.status(200).json(postData);
+        res.redirect('/dashboard');
     } catch (err) {
         res.status(500).json(err);
     };
 });
+
 module.exports = router;

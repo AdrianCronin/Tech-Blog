@@ -1,11 +1,13 @@
 {{!-- dashboard post buttons --}}
 <div class="container vstack gap-2">
     {{#each posts as |post|}}
-    <button type="button" class="btn btn-primary btn-lg col-12 ">
-        <div class="d-flex justify-content-between">
-            <span>{{post.title}}</span><span>{{post.date_created}}</span>
-        </div>
-    </button>
+    <a href="/api/posts/{{post.id}}">
+        <button type="button" class="btn btn-primary btn-lg col-12 ">
+            <div class="d-flex justify-content-between">
+                <span>{{post.title}}</span><span>{{post.date_created}}</span>
+            </div>
+        </button>
+    </a>
     {{/each}}
 </div>
 
@@ -15,6 +17,3 @@
         <button type="button" class="btn btn-primary btn-lg" id="newPostBtn">+New Post</button>
     </a>
 </div>
-
-{{!--
-<script src="./js/dashboard.js"></script> --}}

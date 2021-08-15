@@ -41,15 +41,22 @@
 
 {{!-- add comment template --}}
 <div class="container">
-
     <form id="commentForm">
+    {{#if logged_in}}
         <div class="mb-3 container col-md-6 text-center">
             <label for="commentBox" class="form-label h3 mb-3 fw-normal">Comment</label>
             <textarea class="form-control" id="commentBox" rows="3" data-post_id="{{post.id}}"></textarea>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
         </div>
+    {{else}}
+    <div class="container d-flex justify-content-around">
+        <a href="/login">
+            <button type="button" class="btn btn-primary btn-lg">Login</button>
+        </a>
+    </div>
+    {{/if}}
     </form>
-    
+
 </div>
 
 <script src="/js/newComment.js"></script>

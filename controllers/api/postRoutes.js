@@ -6,10 +6,6 @@ const router = require('express').Router();
 // get a post and its comments
 router.get("/:id", async (req, res) => {
     try {
-        if (!req.session.logged_in) {
-            res.redirect('/login');
-            return;
-        }
         const postData = await Post.findByPk(req.params.id, {
             include: [{ model: User, attributes: ['username'] }]
         });
@@ -97,6 +93,11 @@ router.delete("/delete/:id", async (req, res) => {
 // create a new comment route
 router.post("/comment", async (req, res) => {
     try {
+        if (!req.session.logged_in) {
+            res.redirect('/login');
+            return;
+        }
+        
         const comment = await Comment.create({
             post_id: req.body.post_id,
             content: req.body.comment,

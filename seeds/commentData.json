@@ -1,26 +1,26 @@
 [
     {
-        "content": "I am commenting on the first post - TheDude",
+        "content": "I am commenting on the first post",
         "post_id": 1,
         "user_id": 2
     },
     {
-        "content": "I am commenting on the second post - TheChad",
+        "content": "I am commenting on the second post",
         "post_id": 2,
         "user_id": 3
     },
     {
-        "content": "I am commenting on the Third post - TheMetal",
+        "content": "I am commenting on the Third post",
         "post_id": 3,
         "user_id": 4
     },
     {
-        "content": "I am replying to TheDude's comment on the first post - TheRage",
+        "content": "I am replying to the comment on the first post",
         "post_id": 1,
         "user_id": 1
     },
     {
-        "content": "I also commenting on the second post - TheRage",
+        "content": "I also commenting on the second post",
         "post_id": 2,
         "user_id": 1
     }

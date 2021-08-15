@@ -6,7 +6,6 @@
                 <h4 class="card-title text-white">Edit Post</h4>
             </div>
             <div class="card-body bg-secondary">
-
                 <form id="editForm" data-post_id="{{post.id}}">
                     <div class="mb-3">
                         <label for="editPostTitle" class="form-label text-white">Title</label>
@@ -16,8 +15,7 @@
                         <label for="editPostContent" class="form-label text-white">Content</label>
                         <textarea class="form-control" id="editPostContent" rows="3">{{post.content}}</textarea>
                     </div>
-
-                    <button class="w-100 btn btn-lg btn-primary mb-1" type="submit">Update Post</button>
+                    <button class="w-100 btn btn-lg btn-primary mb-1" type="submit">Update Post</button>     
                 </form>
                 <button class="w-100 btn btn-lg btn-primary" type="click" id="deletePostBtn">Delete Post</button>
             </div>

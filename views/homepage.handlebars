@@ -1,6 +1,7 @@
 {{!-- blog post container --}}
 <div class="container vstack gap-2 col-md-12 mx-auto">
     <div class="b-example-divider"></div>
+
     {{!-- post template --}}
     {{#each posts as |post|}}
     <a href="/api/posts/{{post.id}}" class="text-dark text-decoration-none">
@@ -14,8 +15,7 @@
                     <p class="card-text">{{post.content}}</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted d-flex justify-content-between"><span>Posted by
-                            {{post.user.username}}</span><span> on {{post.date_created}}</span></small>
+                    <small class="text-muted d-flex justify-content-end"><span>Posted by {{post.user.username}} on {{format_time post.date_created}}</span></small>
                 </div>
             </div>
         </div>

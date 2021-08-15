@@ -10,16 +10,15 @@ router.get("/:id", async (req, res) => {
             include: [{ model: User, attributes: ['username'] }]
         });
         const post = postData.get({ plain: true });
-        console.log(post);
 
+        // get all comments for the post
         const commentData = await Comment.findAll({
             where: { post_id: post.id },
             include: [{ model: User, attributes: ['username'] }]
         });
         const comments = commentData.map((comment) => comment.get({plain: true}));
 
-        console.log(comments);
-        res.render('blogPage', { post, comments });
+        res.render('blogPage', { post, comments, logged_in: req.session.logged_in});
 
     } catch (err) {
         res.status(500).json(err);

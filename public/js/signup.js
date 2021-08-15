@@ -17,7 +17,6 @@ const signupFormHandler = async (event) => {
         } else {
             alert(response.statusText);
         }
-
     }
 };
 

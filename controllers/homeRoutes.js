@@ -88,7 +88,7 @@ router.get('/new', async (req, res) => {
             return;
         }
         req.session.dashboard = true;
-        res.render('newPost', { logged_in: req.session.logged_in, dashboard: req.session.dashboard });
+        res.render('newPost', { logged_in: req.session.logged_in, dashboard: req.session.dashboard, user_id: req.session.user_id });
     } catch (err) {
         res.status(500).json(err);
     };

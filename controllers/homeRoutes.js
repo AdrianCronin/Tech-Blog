@@ -62,7 +62,7 @@ router.get('/dashboard', async (req, res) => {
         const postData = await Post.findAll({
             where:
             {
-                id: req.session.user_id
+                user_id: req.session.user_id
             },
             include:
                 [{
@@ -70,8 +70,8 @@ router.get('/dashboard', async (req, res) => {
                     attributes: ['username']
                 }]
         });
-
         const posts = postData.map((post) => post.get({ plain: true }));
+
         req.session.dashboard = true;
         res.render('dashboard', { posts, logged_in: req.session.logged_in, dashboard: req.session.dashboard });
 

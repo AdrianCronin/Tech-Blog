@@ -16,14 +16,23 @@ router.get("/:id", async (req, res) => {
             where: { post_id: post.id },
             include: [{ model: User, attributes: ['username'] }]
         });
-        const comments = commentData.map((comment) => comment.get({plain: true}));
+        const comments = commentData.map((comment) => comment.get({ plain: true }));
 
-        res.render('blogPage', { post, comments, logged_in: req.session.logged_in});
+        res.render('blogPage', { post, comments, logged_in: req.session.logged_in });
 
     } catch (err) {
         res.status(500).json(err);
     }
-
 });
 
+// create a new post
+router.post("/new", async (req, res) => {
+    try {
+        const postData = await Post.create(req.body);
+        console.log(postData.id);
+        res.status(200).json(postData);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
 module.exports = router;

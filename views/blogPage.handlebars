@@ -41,11 +41,15 @@
 
 {{!-- add comment template --}}
 <div class="container">
+
     <form id="commentForm">
         <div class="mb-3 container col-md-6 text-center">
             <label for="commentBox" class="form-label h3 mb-3 fw-normal">Comment</label>
-            <textarea class="form-control" id="commentBox" rows="3"></textarea>
+            <textarea class="form-control" id="commentBox" rows="3" data-post_id="{{post.id}}"></textarea>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
         </div>
     </form>
+    
 </div>
+
+<script src="/js/newComment.js"></script>

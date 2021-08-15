@@ -1,7 +1,6 @@
 const { Post, User, Comment } = require('../../models');
 
 const router = require('express').Router();
-// const withAuth = require('../../utils/auth');
 
 // get a post and its comments
 router.get("/:id", async (req, res) => {
@@ -39,7 +38,7 @@ router.post("/new", async (req, res) => {
     }
 });
 
-// edit post page
+// edit post view
 router.get('/edit/:id', async (req, res) => {
     try {
         if (!req.session.logged_in) {
@@ -57,7 +56,7 @@ router.get('/edit/:id', async (req, res) => {
     };
 });
 
-// edit a post route
+// edit post route
 router.put("/edit/:id", async (req, res) => {
     try {
         const newPost = await Post.update(req.body, {
@@ -71,7 +70,7 @@ router.put("/edit/:id", async (req, res) => {
     }
 });
 
-// delete a post route
+// delete post route
 router.delete("/delete/:id", async (req, res) => {
     try {
         const postData = await Post.destroy({

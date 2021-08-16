@@ -11,7 +11,9 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        if (!userData.password === req.body.password) {
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
             res.status(400).json("Incorrect email or password");
             return;
         }
@@ -32,10 +34,12 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
     try {
         if (req.session.logged_in) {
-            req.session.logged_in = false;
-            res.redirect('/');
+            req.session.destroy(() => {
+                req.session.logged_in = false;
+                res.render('homepage', { logged_in: req.session.logged_in });
+            });
         } else {
-            res.status(400).end();
+            res.status(404).end();
         }
     } catch (err) {
         res.status(400).json(err);

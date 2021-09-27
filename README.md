@@ -1,5 +1,5 @@
 # Tech-Blog
-[Link to Deployed App](https://a-tech-discourse.herokuapp.com/)
+Link to deployed app: https://a-tech-discourse.herokuapp.com/
 
 ## Description
 
@@ -29,12 +29,12 @@ Dashboard:
 
 ## Technologies Used
 
-* Javascript
+* JavaScript
 * Node.js
 * Express.js
 * Sequelize.js
 * MySQL
-* Handlebars
+* Handlebars.js
 * dotenv
 * bcrypt
 * Bootstrap
